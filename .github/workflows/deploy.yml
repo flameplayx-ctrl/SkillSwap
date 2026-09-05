@@ -29,6 +29,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Fix CommonJS config files for ES module project
+        run: |
+          mv postcss.config.js postcss.config.cjs
+          mv tailwind.config.js tailwind.config.cjs
+
       - name: Build
         run: npm run build
 
