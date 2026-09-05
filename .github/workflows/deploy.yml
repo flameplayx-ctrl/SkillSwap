@@ -34,6 +34,10 @@ jobs:
           mv postcss.config.js postcss.config.cjs
           mv tailwind.config.js tailwind.config.cjs
 
+      - name: Fix invalid Tailwind utility
+        run: |
+          sed -i 's/@apply overflow-hidden text-overflow-ellipsis whitespace-nowrap;/@apply truncate;/' src/index.css
+
       - name: Build
         run: npm run build
 
